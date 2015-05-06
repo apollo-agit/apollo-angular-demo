@@ -1,0 +1,76 @@
+{
+  "name": "apollo-item-angular",
+  "description": "The mix in build for apollo and bootstrap",
+  "version": "1.0.0",
+  "keywords": [
+    "css",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://getbootstrap.com",
+  "author": "Twitter, Inc.",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "style": "dist/css/styles.css",
+  "less": "less/styles.less",
+  "main": "./dist/js/npm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ian-hamilton/apollo-item.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "license": {
+    "type": "MIT",
+    "url": ""
+  },
+  "dependencies": {
+	"angular": "1.3.15"
+  },
+  "devDependencies": {
+    "jquery": "2.1.1",
+    "angular-mocks": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~2.2.0",
+    "grunt-banner": "~0.3.1",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-compress": "~0.13.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-csslint": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.12.2",
+    "grunt-contrib-jshint": "~0.11.0",
+    "grunt-contrib-less": "~1.0.0",
+    "grunt-contrib-qunit": "~0.5.2",
+    "grunt-contrib-uglify": "~0.8.0",
+    "grunt-contrib-jade": "~0.14.1",
+    "grunt-exec": "~0.4.6",
+    "load-grunt-tasks": "~3.1.0"
+  },
+  "engines": {
+    "node": ">=0.10.1"
+  },
+  "jspm": {
+    "main": "less/bootstrap/js/bootstrap",
+    "directories": {
+      "example": "examples",
+      "lib": "dist"
+    },
+    "shim": {
+      "less/bootstrap/js/bootstrap": {
+        "imports": "jquery",
+        "exports": "$"
+      }
+    },
+    "buildConfig": {
+      "uglify": true
+    }
+  }
+}

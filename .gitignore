@@ -1,0 +1,20 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Maven
+log/
+target/
+pom.xml~
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+.metadata
+
+#npm
+node_modules/
+npm-debug.log

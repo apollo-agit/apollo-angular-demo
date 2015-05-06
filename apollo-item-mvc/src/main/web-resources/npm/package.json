@@ -1,0 +1,36 @@
+{
+  "name": "apollo-hub-build",
+  "description": "A Grunt task to watch and run tasks on multiple Grunt projects",
+  "version": "0.7.0",
+  "homepage": "https://github.com/shama/grunt-hub",
+  "author": {
+    "name": "Ian Hamilton",
+    "email": "ian.hamilton.it@gmail.com",
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ian-hamilton/apollo-item.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ian-hamilton/apollo-item/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ian-hamilton/apollo-item/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt-hub": "~0.7.0",
+	"grunt-contrib-jshint": "~0.8.0",
+	"grunt-contrib-copy": "~0.8.0",
+	"load-grunt-tasks": "~3.1.0"
+  },
+  "keywords": [
+    "na"
+  ]
+}

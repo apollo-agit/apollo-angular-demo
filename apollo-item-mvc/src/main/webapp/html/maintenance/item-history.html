@@ -1,0 +1,8 @@
+<!-- item history -->
+<ul class="itemHistory">
+  <li ng-repeat="itemHistoryRecord in itemHistory | orderBy:itemUpdateDate">
+    <span>{{itemHistoryRecord.itemUpdateDate | date:'MM/dd/yyyy @ h:mma'}}</span>
+    <p>Note {{itemHistoryRecord.itemUpdateNote}}</p>
+  </li>
+</ul>
+<!-- end item history -->
