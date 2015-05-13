@@ -14,7 +14,7 @@ var apolloMaintenanceControllers = angular.module('apolloMaintenanceControllers'
 
 
 var apolloMaintenanceApp = angular.module('apolloMaintenanceApp', [ 'apolloMaintenanceControllers', 'ui.router', 'ngGrid',  
-		'apolloItemServices', 'apolloHistoryServices' ]);
+		'apolloItemServices', 'apolloHistoryServices', 'formly', 'formlyBootstrap']);
 
 apolloMaintenanceApp.config([ '$stateProvider', '$urlRouterProvider', function($stateProvider,$urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');

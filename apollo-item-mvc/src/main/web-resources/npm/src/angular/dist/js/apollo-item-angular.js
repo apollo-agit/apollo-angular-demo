@@ -16,7 +16,7 @@ var apolloMaintenanceControllers = angular.module('apolloMaintenanceControllers'
 
 
 var apolloMaintenanceApp = angular.module('apolloMaintenanceApp', [ 'apolloMaintenanceControllers', 'ui.router', 'ngGrid',  
-		'apolloItemServices', 'apolloHistoryServices' ]);
+		'apolloItemServices', 'apolloHistoryServices', 'formly', 'formlyBootstrap']);
 
 apolloMaintenanceApp.config([ '$stateProvider', '$urlRouterProvider', function($stateProvider,$urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
@@ -144,6 +144,9 @@ apolloItemServices.factory('ApolloNewItem', [ '$resource', function($resource) {
 		head : {
 			url : '/apollo-item-mvc/service/apolloitems/item/metadata',
 			method: 'GET'
+		},
+		submit : {
+			method : 'POST'
 		}
 	});
 }]);
@@ -151,26 +154,23 @@ apolloItemServices.factory('ApolloNewItem', [ '$resource', function($resource) {
 
 apolloMaintenanceControllers.controller('ApolloNewItemController', [
 		'$scope', 'ApolloNewItem', function($scope, ApolloNewItem) {
-					
+			var vm = this;
+			vm.apolloItem = {};
+			
+			vm.submit = function() {
+				ApolloNewItem.submit({id:vm.apolloItem.id}, vm.apolloItem).$promise.then(
+						function(successResult) {
+							vm.apolloItem = result;
+					    }, function(errorResult) {
+					        alert(errorResult);
+					    });
+			}
+			
 			 $scope.loadProperties = function() {
 				 ApolloNewItem.head().$promise.then(
 						 function( head ){
-					        	var myArray = new Array();;
-					        	 $.each(head.properties, function(key, value) {
-					        		 var field = new Object();
-					        		 field.label = key;
-					        		 field.name = key;
-					        		 field.type = value.type;
-					        		 field.required = true;
-					        		 myArray.push(field);
-					        	 });
-					        	var formFields = new Object();
-					        	formFields.name = "FormFields";
-					        	formFields.fields = myArray;
-					        	console.log(JSON.stringify(formFields));
-					        	$scope.entity = formFields;
-							 }
-							);
+							 vm.formFields = apollo.generateFields(head);
+							 });
 			 };
 				 
 			
@@ -216,9 +216,54 @@ apolloMaintenanceControllers.controller('ApolloHistoryController', [ '$scope', '
     	
  
     $(document).ready(function() { 
-        $('#saveAllItems2').click(function() { 
+        $('#saveAllItems').click(function() { 
             $.blockUI({ message: '<h1><img src="busy.gif" /> Just a moment...</h1>' }); 
         }); 
     });
     
     });
+    
+    String.prototype.replaceAll = function (find, replace) {
+        var str = this;
+        return str.replace(new RegExp(find, 'g'), replace);
+    };
+
+    var apollo = {
+    		
+    		generateFields : function(schema) {
+    			var index=0;
+    			var formFields = new Array();
+    			
+    			 $.each(schema.properties, function(key, value) {
+            		var formField = new Object();
+            		formField.templateOptions = new Object();
+            		
+            		formField.key = key;
+            		
+            		switch(value.type) {
+            			case 'string':
+            				formField.type = 'input';
+            				break;
+            			case 'text':
+            				formField.type = 'textarea';
+            				formField.templateOptions.rows = 4;
+            				formField.templateOptions.cols = 15;
+            				break;
+            			case 'id':
+            				formField.type = 'input';
+            				formField.templateOptions.disabled = 'true';
+            				break;
+            			default:
+            				formField.type = 'input';
+            		}
+            		
+            		formField.templateOptions.required = value.required;
+            		formField.templateOptions.label = key.replaceAll("_", " ");        		
+            		
+            		formFields[index++] = formField;
+            	 });
+    			 
+    			 return formFields;
+    		}
+    		
+    };
