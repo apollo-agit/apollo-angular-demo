@@ -6,7 +6,7 @@
  */
 
 apolloItemServices.factory('ApolloHistory', [ '$resource', function($resource) {
-	return $resource('/apollo-item-mvc/service/apolloitems/history', {itemId : '@historyItemId'}, {
+	return $resource('/service/apolloitems/history', {itemId : '@historyItemId'}, {
 		query : {
 			method : 'GET',
 			isArray : true

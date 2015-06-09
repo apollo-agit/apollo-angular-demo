@@ -6,7 +6,7 @@
  */
 
 apolloItemServices.factory('ApolloItems', [ '$resource', function($resource) {
-	return $resource('/apollo-item-mvc/service/apolloitems/item', {id:'@id'}, {
+	return $resource('/service/apolloitems/item', {id:'@id'}, {
 		query : {
 			method : 'GET',
 			isArray : true

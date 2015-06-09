@@ -7,9 +7,9 @@
 
 
 apolloItemServices.factory('ApolloNewItem', [ '$resource', function($resource) {
-	return $resource('/apollo-item-mvc/service/apolloitems/item', {id:'@id'}, {
+	return $resource('/service/apolloitems/item', {id:'@id'}, {
 		head : {
-			url : '/apollo-item-mvc/service/apolloitems/item/metadata',
+			url : '/service/apolloitems/item/metadata',
 			method: 'GET'
 		},
 		submit : {

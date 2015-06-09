@@ -41,6 +41,10 @@
    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
    <script src="http://malsup.github.io/jquery.blockUI.js"></script>
    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/api-check/7.2.2/api-check.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-formly/6.3.4/formly.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-formly-templates-bootstrap/4.0.9/angular-formly-templates-bootstrap.min.js"></script>
+   
    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid-layout.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid-flexible-height.min.js"></script>

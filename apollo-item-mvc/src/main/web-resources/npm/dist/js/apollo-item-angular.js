@@ -57,7 +57,7 @@ apolloMaintenanceApp.directive("dynamicName",function($compile){
  */
 
 apolloItemServices.factory('ApolloItems', [ '$resource', function($resource) {
-	return $resource('/apollo-item-mvc/service/apolloitems/item', {id:'@id'}, {
+	return $resource('/service/apolloitems/item', {id:'@id'}, {
 		query : {
 			method : 'GET',
 			isArray : true
@@ -140,9 +140,9 @@ apolloMaintenanceControllers.controller('ApolloItemMaintenanceController', [
 
 
 apolloItemServices.factory('ApolloNewItem', [ '$resource', function($resource) {
-	return $resource('/apollo-item-mvc/service/apolloitems/item', {id:'@id'}, {
+	return $resource('/service/apolloitems/item', {id:'@id'}, {
 		head : {
-			url : '/apollo-item-mvc/service/apolloitems/item/metadata',
+			url : '/service/apolloitems/item/metadata',
 			method: 'GET'
 		},
 		submit : {
@@ -183,7 +183,7 @@ apolloMaintenanceControllers.controller('ApolloNewItemController', [
  */
 
 apolloItemServices.factory('ApolloHistory', [ '$resource', function($resource) {
-	return $resource('/apollo-item-mvc/service/apolloitems/history', {itemId : '@historyItemId'}, {
+	return $resource('/service/apolloitems/history', {itemId : '@historyItemId'}, {
 		query : {
 			method : 'GET',
 			isArray : true

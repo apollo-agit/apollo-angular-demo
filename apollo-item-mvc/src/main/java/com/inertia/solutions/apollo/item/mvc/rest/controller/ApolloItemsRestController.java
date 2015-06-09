@@ -44,7 +44,6 @@ import com.inertia.solutions.apollo.item.mvc.domain.service.ApolloItemService;
 @Controller
 @RequestMapping("/service/apolloitems")
 public class ApolloItemsRestController {
-	private static final Logger log = LoggerFactory.getLogger(ApolloItemsRestController.class);
 	private static final String ACCEPT_APPLICATION_JSON = "Accept=application/json";
 
 	@Autowired
@@ -61,7 +60,6 @@ public class ApolloItemsRestController {
         JsonSchemaGenerator generator = new JsonSchemaGenerator(mapper);
         JsonSchema jsonSchema = generator.generateSchema(ApolloItem.class);
         String ret =  mapper.writeValueAsString(jsonSchema);
-        log.info(ret);
         return ret;
     }  
     
